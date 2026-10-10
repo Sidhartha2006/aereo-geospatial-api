@@ -1,0 +1,13 @@
+﻿@'
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local environment and logs
+.env.*
+!.env.example
+*.log
+'@ | Add-Content .gitignore

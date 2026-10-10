@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+python-multipart
+pandas
+geopandas
+shapely
+pyproj
+pydantic-settings
