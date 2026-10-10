@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEREO | Geospatial Measurement</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">A</span> AEREO</a>
+    <span class="status"><span></span> Geospatial Analysis</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">GEOSPATIAL MEASUREMENT PLATFORM</p>
+      <h1>Measure the world<br><span>with precision.</span></h1>
+      <p class="subtitle">Upload geospatial data to calculate area, length, and feature statistics in seconds.</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2>Upload your dataset</h2><p>Supported formats: GeoJSON and Shapefile ZIP</p></div>
+        <span class="step">01 / INPUT</span>
+      </div>
+
+      <label class="dropzone" id="dropzone" for="file">
+        <div class="upload-icon">↑</div>
+        <strong id="file-title">Drop your file here or <span>browse</span></strong>
+        <p id="file-description">.geojson or .zip · Maximum file size 25 MB</p>
+        <input id="file" type="file" accept=".geojson,.json,.zip,application/geo+json,application/json,application/zip">
+      </label>
+
+      <div class="file-row" id="file-row" hidden>
+        <div class="file-badge">FILE</div>
+        <div class="file-meta"><strong id="selected-name"></strong><small id="selected-size"></small></div>
+        <button id="remove-file" class="text-button" type="button">Remove</button>
+      </div>
+
+      <button id="measure" class="primary-button" disabled>Calculate measurements <span>→</span></button>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section id="results" hidden>
+      <div class="section-heading results-heading">
+        <div><p class="eyebrow">ANALYSIS OUTPUT</p><h2>Measurement results</h2></div>
+        <span class="success-label">✓ Completed</span>
+      </div>
+      <div class="metrics">
+        <article class="metric"><p>Total area</p><strong id="area">—</strong><small>Square metres (m²)</small></article>
+        <article class="metric"><p>Total length</p><strong id="length">—</strong><small>Metres (m)</small></article>
+        <article class="metric"><p>Total features</p><strong id="count">—</strong><small>Processed geometries</small></article>
+      </div>
+      <div class="panel details">
+        <h2>Dataset details</h2>
+        <div class="detail-grid">
+          <div><small>Filename</small><strong id="result-filename">—</strong></div>
+          <div><small>Source CRS</small><strong id="crs">—</strong></div>
+          <div><small>Measurement method</small><strong id="method">—</strong></div>
+          <div><small>Geometry types</small><strong id="types">—</strong></div>
+          <div><small>Bounds</small><strong id="bounds">—</strong></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Geometry</th><th>Area (m²)</th><th>Length (m)</th><th>Properties</th></tr></thead>
+            <tbody id="feature-rows"></tbody>
+          </table>
+        </div>
+        <button id="download" class="secondary-button" type="button">Download results JSON ↓</button>
+      </div>
+    </section>
+    <footer> AEREO Geospatial Measurement API <span>·</span> Built with FastAPI</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
